@@ -1,12 +1,15 @@
 function Exam(){
-  var pos = $("#pos").data('pos');
+  var position = gon.position;
+  var questions_ids = gon.questions_ids;
+  console.log(gon.questions_ids)
+  var current_question_id = questions_ids[position];
   var correct = 0;
   var questions;
   var $container = $("#question_container");
   var _question_tpl = _.template($("#question_tpl").html());
   
   this.init = function(){
-    renderQuestion(1);
+    renderQuestion(current_question_id);
   }
   function renderQuestion(question_id){
     $.ajax({

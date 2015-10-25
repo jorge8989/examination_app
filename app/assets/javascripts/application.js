@@ -11,7 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require turbolinks
 //= require jquery_ujs
 //= require lib/underscore-min
 //= require engine
-//= require turbolinks
