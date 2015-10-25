@@ -1,4 +1,5 @@
 class ExamsController < ApplicationController
+  before_action :clear_sessions, except: [:take_test]
   
   def welcome
     session[:pos] = nil;

@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     session[:position] ||= 0
   end
   
+  def clear_sessions
+    session[:position] = nil
+  end
+  
 end
