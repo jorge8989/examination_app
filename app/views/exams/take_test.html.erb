@@ -1,0 +1,12 @@
+<%= content_tag :div, "", data: {pos: @pos}, id: "pos" %>
+<div id="question_container" class="question_container">
+</div>
+<script type="text/template" id="question_tpl">
+  <div id="test">
+    <h3><%%= question %></h3>
+    <%% _.each(choices, function(choice){ %>
+      <input type="radio" name="choices" value="<%%= choice.letter%>"><span><%%= choice.content%></span><br>
+    <%% })%>
+    <br><button class="submit_button">Submit Answer</button>
+  </div>
+</script>
