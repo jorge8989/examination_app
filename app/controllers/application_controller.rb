@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
   protected
   
   def set_gon
-    gon.questions_ids = Question.all.map {|q| q.id} || nil
+    gon.questions_ids = Question.limit(10).map {|q| q.id} || nil
     gon.position = session[:position]
+    gon.correct = session[:correct] || nil
   end
   
   def set_sessions
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
   
   def clear_sessions
-    session[:position] = nil
+    session[:position] = 0
     session[:correct] = 0
   end
   

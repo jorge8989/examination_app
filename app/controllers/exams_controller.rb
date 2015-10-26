@@ -10,10 +10,11 @@ class ExamsController < ApplicationController
   
   def check_answer
     @selected = params[:choices]
-      if @selected == @answer
-        session[:correct] += 1
-      end
+    if @selected == @answer
+      session[:correct] += 1
+    end
       session[:position] += 1
+      
     redirect_to take_test_path
   end
   
@@ -22,8 +23,13 @@ class ExamsController < ApplicationController
   def set_variables
     @questions_ids = gon.questions_ids
     @position = gon.position
-    @question = Question.find(gon.questions_ids[gon.position])
-    @answer = @question.answer
+    @correct = gon.correct
+    if @position < @questions_ids.length
+      @question = Question.find(gon.questions_ids[gon.position])
+      @answer = @question.answer   
+    else
+      clear_sessions   
+    end
   end
   
 end 

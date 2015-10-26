@@ -1,4 +1,4 @@
-<h2>Question <%= @position+1 %> of <%= @questions_ids.length %></h2>
+<h2><%= test_title %></h2>
 <div id="test_box">
   <%= form_tag('/check_answer') do %>
   <div id="question_container" class="question_container">
@@ -13,4 +13,7 @@
       <input type="radio" name="choices" value="<%%= choice.letter%>"><span><%%= choice.content%></span><br>
     <%% })%>
   </div>
+</script>
+<script type="text/template" id="results_tpl" >
+<h2>You got correct <%%= correct %> of <%%= questions_ids.length %> questions </h2>
 </script>
