@@ -1,10 +1,7 @@
 function Exam(){
   var position = gon.position;
   var questions_ids = gon.questions_ids;
-  console.log(gon.questions_ids)
   var current_question_id = questions_ids[position];
-  var correct = 0;
-  var questions;
   var $container = $("#question_container");
   var _question_tpl = _.template($("#question_tpl").html());
   

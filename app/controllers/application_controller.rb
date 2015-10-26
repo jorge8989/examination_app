@@ -14,10 +14,12 @@ class ApplicationController < ActionController::Base
   
   def set_sessions
     session[:position] ||= 0
+    session[:correct] ||= 0
   end
   
   def clear_sessions
     session[:position] = nil
+    session[:correct] = 0
   end
   
 end
